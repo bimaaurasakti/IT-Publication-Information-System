@@ -1,0 +1,27 @@
+.navbar {
+    background-color: #0E3854;
+}
+.nav-item{
+    margin-right: 30px;
+    font-weight: 200;
+}
+.nav-item.active a {
+    color: rgb(228, 185, 106) !important;
+}
+.ratatengah {
+    margin-left: 300px;
+    margin-top: 50px;
+}
+.col {
+    font-weight: 300 !important;
+}
+
+/* Carousel */
+.carousel {
+    height: 450px;
+    background-color: #0E3854;
+    color: white;
+}
+.h3 {
+    font-weight: 300 !important;
+}
