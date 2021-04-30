@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JournalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('home', [HomeController::class, 'index'])->name('index');
+
+Route::prefix('journal')->name('journal.')->group(function() {
+    Route::get('/', [JournalController::class, 'index'])->name('index');
+    Route::get('detail-journal', [JournalController::class, 'detailJournalView'])->name('detailJournalView');
 });
+
+// Route::prefix('conference')->name('conference.')->group(function() {
+//     Route::get('/', [JournalController::class, 'index'])->name('index');
+//     Route::get('detail-conference', [JournalController::class, 'detailConferenceView'])->name('detailConverenceView');
+// });
