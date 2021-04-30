@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">HELP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ADMIN</a>
+                    <a class="nav-link" href="/login-admin">ADMIN</a>
                 </li>
             </ul>
             <form class="d-flex">

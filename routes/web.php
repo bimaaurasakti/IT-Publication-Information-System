@@ -24,6 +24,10 @@ Route::prefix('journal')->name('journal.')->group(function() {
     Route::get('detail-journal', [JournalController::class, 'detailJournalView'])->name('detailJournalView');
 });
 
+Route::get('/login-admin', function () {
+    return view('login-admin');
+});
+
 // Route::prefix('conference')->name('conference.')->group(function() {
 //     Route::get('/', [JournalController::class, 'index'])->name('index');
 //     Route::get('detail-conference', [JournalController::class, 'detailConferenceView'])->name('detailConverenceView');
