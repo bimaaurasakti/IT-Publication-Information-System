@@ -1,0 +1,19 @@
+
+/* login */
+body {
+    height: 100vh;
+    background-size: cover;
+    background-color: #0E3854;
+}
+
+.form {
+    border-radius: 10px;
+    color: #626B83;
+    background-color: #D9E4F5;
+    height: 40px;
+    width: 464px;
+}
+
+.submit {
+    border-radius: 10px;
+}
