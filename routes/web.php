@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConferenceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JournalController;
@@ -27,6 +28,8 @@ Route::prefix('journal')->name('journal.')->group(function() {
 Route::get('/login-admin', function () {
     return view('login-admin');
 });
+
+Route::get('/conference', [ConferenceController::class, 'index'])->name('index');
 
 // Route::prefix('conference')->name('conference.')->group(function() {
 //     Route::get('/', [JournalController::class, 'index'])->name('index');
