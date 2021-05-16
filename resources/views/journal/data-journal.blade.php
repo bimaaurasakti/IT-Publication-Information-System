@@ -7,15 +7,15 @@ SIPIT | Journal
 
 
 @section('css')
-<link href="{{ asset('css/journal/journal.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/journal/data-journal.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 
 @section('content')
-<div class="journal-container">
-    <div class="w-100 mb-5">
-        <div class="journal-page-title">
-            <p>Journal</p>
+<div class="content-container">
+    <div class="w-100 mb-5 d-flex justify-content-center">
+        <div class="content-page-title">
+            <h1>Journal</h1>
         </div>
     </div>
 
@@ -27,7 +27,7 @@ SIPIT | Journal
             @endphp
             <div class="col-xxl-3 col-xl-4 mb-5">
                 <div class="d-flex justify-content-center">
-                    <div class="journal-item journal-item-border">
+                    <div class="journal-item journal-item-border" onclick="location.href='journal/detail-journal/{{ $journal->slug }}';" style="cursor: pointer;">
                         <div class="position-relative">
                             <div class="d-block">
                                 <img class="journal-item-border-top" src="{{ asset($journal->photo) }}" alt="{{ $journal->photo }}" height="300px" width="200px">
@@ -47,7 +47,7 @@ SIPIT | Journal
                                     {{ $journal->judul }}
                                 </p>
 
-                                <div class="d-flex flex-wrap mt-2">
+                                <div class="d-flex flex-wrap mt-2 mb-3">
                                     @foreach ($areas as $area)
                                     <div class="mt-1">
                                         <p class="journal-area-text">

@@ -1,16 +1,26 @@
-.journal-container {
+.content-container {
     padding: 50px 150px;
 }
 
-.journal-page-title {
-    border-bottom: solid 1px black;
+.content-page-title {
+    padding: 5px 20px;
+    border-bottom: solid 2px #0E3854;
     text-align: center;
-    width: 100px;
+    width: auto;
+}
+
+.content-page-title > h1 {
+    color: #0E3854;
 }
 
 .journal-item {
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
     width: 200px;
+    transition: all 0.3s;
+}
+
+.journal-item:hover {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .journal-item-border-top {

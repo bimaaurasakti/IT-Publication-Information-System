@@ -68,7 +68,7 @@ SIPIT | Home
 
   <!-- Features -->
 
-  <section class="features">
+  <section class="features mt-5">
     <div class="container">
       <div class="row mb-3 mt-3">
         <div class="col">
@@ -120,7 +120,7 @@ SIPIT | Home
 
   <!-- Writer -->
 
-  <section class="features">
+  <section class="features mt-5 mb-5">
     <div class="container">
       <div class="row mb-3 mt-3">
         <div class="col">

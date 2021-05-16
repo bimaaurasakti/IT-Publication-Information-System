@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConferenceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JournalController;
@@ -21,7 +22,12 @@ Route::get('home', [HomeController::class, 'index'])->name('index');
 
 Route::prefix('journal')->name('journal.')->group(function() {
     Route::get('/', [JournalController::class, 'index'])->name('index');
-    Route::get('detail-journal', [JournalController::class, 'detailJournalView'])->name('detailJournalView');
+    Route::get('detail-journal/{jurnal:slug}', [JournalController::class, 'detailJournalView'])->name('detailJournalView');
+});
+
+Route::prefix('conference')->name('conference.')->group(function() {
+    // Route::get('/', [ConferenceController::class, 'index'])->name('index');
+    Route::get('detail-conference/{conference:id}', [ConferenceController::class, 'detailConferenceView'])->name('index');
 });
 
 // Route::prefix('conference')->name('conference.')->group(function() {

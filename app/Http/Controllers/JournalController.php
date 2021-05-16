@@ -15,9 +15,11 @@ class JournalController extends Controller
         ]);
     }
 
-    public function detailJournalView()
+    public function detailJournalView(Jurnal $jurnal)
     {
-        return view('journal.detail-journal');
+        return view('journal.detail-journal', [
+            'jurnal' => $jurnal,
+        ]);
     }
 
 }
