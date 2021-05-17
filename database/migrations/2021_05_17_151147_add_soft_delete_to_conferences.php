@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGambarToConferences extends Migration
+class AddSoftDeleteToConferences extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddGambarToConferences extends Migration
     public function up()
     {
         Schema::table('conferences', function (Blueprint $table) {
-            $table->string('gambar');
+            $table->softDeletes();
         });
     }
 
@@ -26,7 +26,7 @@ class AddGambarToConferences extends Migration
     public function down()
     {
         Schema::table('conferences', function (Blueprint $table) {
-            $table->string(['gambar'])->nullable();
+            //
         });
     }
 }

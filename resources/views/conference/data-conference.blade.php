@@ -2,19 +2,19 @@
 
 
 @section('title')
-SIPIT | Journal
+SIPIT | Conferences
 @endsection
 
 
 @section('css')
-<link href="{{ asset('css/journal/journal.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/conference/conference.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 
 @section('content')
-<div class="journal-container">
+<div class="conference-container">
     <div class="w-100 mb-5">
-        <div class="journal-page-title">
+        <div class="conference-page-title">
             <p>Conference</p>
         </div>
     </div>
@@ -27,30 +27,34 @@ SIPIT | Journal
             @endphp
             <div class="col-xxl-4 col-xl-4 mb-5">
                 <div class="d-flex justify-content-center">
-                    <div class="journal-item journal-item-border">
+                    <div class="conference-item conference-item-border">
                         <div class="position-relative">
                             <div class="d-block">
-                                <img class="journal-item-border-top" src="{{ asset($conference->photo) }}" alt="{{ $conference->photo }}" height="300px" width="200px">
-                                <div class="journal-score-container">
-                                    <div class="journal-score journal--bg-{{ $conference->score }} journal-item">
+                                <!-- <img class="conference-item-border-top" src="{{ asset($conference->photo) }}" alt="{{ $conference->photo }}" height="300px" width="200px"> -->
+                                <!-- <div class="conference-score-container"> -->
+                                    <!-- <div class="conference-score conference--bg-{{ $conference->score }} conference-item">
                                         <p class="m-0 text-light text-uppercase">
                                             {{ $conference->name }}
                                         </p>
-                                    </div>
-                                </div>
+                                    </div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
 
                         <div class="d-block">
                             <div class="px-3 py-3">
-                                <p class="jounal-title m-0">
+                                <h3 class="conference-title m-0">
                                     {{ $conference->name }}
+                                </h3>
+                                <hr>
+                                <p class="conference-title m-0">
+                                    {{ $conference->long_name }}
                                 </p>
 
                                 <div class="d-flex flex-wrap mt-2">
                                     @foreach ($areas as $area)
                                     <div class="mt-1">
-                                        <p class="journal-area-text">
+                                        <p class="conference-area-text">
                                             {{ $area }}
                                         </p>
                                     </div>

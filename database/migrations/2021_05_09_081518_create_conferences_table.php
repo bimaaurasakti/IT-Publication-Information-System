@@ -18,7 +18,7 @@ class CreateConferencesTable extends Migration
             $table->timestamp('date');
             $table->string('area');
             $table->string('name');
-            $table->string('penyelenggara');
+            $table->string('penyelenggara')->nullable();
             $table->string('long_name');
             $table->string('link_website');
             $table->string('location');
