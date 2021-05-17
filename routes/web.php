@@ -29,7 +29,9 @@ Route::get('/login-admin', function () {
     return view('login-admin');
 });
 
-Route::get('/conference', [ConferenceController::class, 'index'])->name('index');
+Route::prefix('conference')->group(function() {
+    Route::get('/', [ConferenceController::class, 'index'])->name('index');
+});
 
 // Route::prefix('conference')->name('conference.')->group(function() {
 //     Route::get('/', [JournalController::class, 'index'])->name('index');
