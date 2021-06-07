@@ -15,7 +15,7 @@ SIPIT | Conference
 <div class="container mt-5 mb-4">
     <nav>
         <ol class="breadcrumb bg-transparent pl-0">
-            <li class="breadcrumb-item"><a href="/conference">Conference</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('conference.index')}}">Conference</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ ucwords($conference->name) }}</li>
         </ol>
     </nav>

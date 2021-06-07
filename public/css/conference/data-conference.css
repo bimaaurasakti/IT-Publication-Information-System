@@ -1,0 +1,50 @@
+.conference-container {
+    padding: 50px 150px;
+}
+
+.conference-page-title {
+    padding: 5px 20px;
+    border-bottom: solid 2px #0E3854;
+    text-align: center;
+    width: auto;
+}
+
+.conference-page-title > h1 {
+    color: #0E3854;
+}
+
+.conference-item {
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+    width: 400px;
+    transition: all 0.3s;
+}
+
+.conference-item:hover {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.conference-item-border-top {
+    border-radius: 10px 0 0 0;
+}
+
+.conference-item-border {
+    border-radius: 10px;
+}
+
+.conference-title {
+    text-align: center;
+}
+
+.conference-score-container {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.conference-area-text {
+    font-size: 10px;
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    background-color: #f5f5f5;
+}

@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Conference extends Model
+class Journal extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'long_name',
+        'title',
         'slug',
         'area',
-        'organizer',
+        'score',
+        'institute',
+        'publisher',
         'link_website',
-        'location',
-        'date',
+        'address',
+        'district',
+        'email',
+        'phone',
+        'photo',
     ];
-
-    // public function users() {
-    //     return $this->belongsToMany(User::class)->withPivot('')
-    // }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Journal;
 use App\Models\Jurnal;
 use Illuminate\Http\Request;
 
@@ -11,14 +12,14 @@ class JournalController extends Controller
     public function index()
     {
         return view('journal.data-journal', [
-            'journals' => Jurnal::get(),
+            'journals' => Journal::paginate(16),
         ]);
     }
 
-    public function detailJournalView(Jurnal $jurnal)
+    public function detailJournalView(Journal $journal)
     {
         return view('journal.detail-journal', [
-            'jurnal' => $jurnal,
+            'journal' => $journal,
         ]);
     }
 

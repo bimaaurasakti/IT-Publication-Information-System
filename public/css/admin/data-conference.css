@@ -1,0 +1,68 @@
+#DataTables_Table_0_wrapper {
+    overflow: hidden;
+}
+
+.admin-data-journal-Action {
+    width: 10px;
+}
+
+.data-journal-action-button {
+    transition: 0.3s ease-in-out;
+}
+
+.data-journal-action-button:hover {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+.data-journal-action-button i {
+    color: #0E3854;
+}
+/* table tr td {
+    word-wrap: break-word;
+} */
+
+/* .admin-data-journal-nomor {
+    max-width: 1px;
+}
+
+.admin-data-journal-title {
+    max-width: 20px;
+}
+.admin-data-journal-area {
+    max-width: 10px;
+}
+
+.admin-data-journal-score {
+    max-width: 5px;
+}
+
+.admin-data-journal-institute {
+    max-width: 30px;
+}
+
+.admin-data-journal-publisher {
+    max-width: 50px;
+}
+.admin-data-journal-link-website {
+    max-width: 60px;
+}
+
+.admin-data-journal-address {
+    max-width: 50px;
+}
+
+.admin-data-journal-district {
+    max-width: 15px;
+}
+
+.admin-data-journal-email {
+    max-width: 20px;
+}
+
+.admin-data-journal-phone {
+    max-width: 30px;
+} */
+
+/* table.yajra-datatable{
+    table-layout:fixed;
+} */

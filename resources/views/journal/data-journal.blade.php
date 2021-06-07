@@ -32,7 +32,7 @@ SIPIT | Journal
                             <div class="d-block">
                                 <img class="journal-item-border-top" src="{{ asset($journal->photo) }}" alt="{{ $journal->photo }}" height="300px" width="200px">
                                 <div class="journal-score-container">
-                                    <div class="journal-score journal--bg-{{ $journal->score }} journal-item">
+                                    <div class="journal-score journal--bg-{{ strtolower($journal->score) }} journal-item">
                                         <p class="m-0 text-light text-uppercase">
                                             {{ $journal->score }}
                                         </p>
@@ -43,9 +43,9 @@ SIPIT | Journal
 
                         <div class="d-block">
                             <div class="px-3 py-3">
-                                <p class="jounal-title m-0">
-                                    {{ $journal->judul }}
-                                </p>
+                                <h5 class="jounal-title m-0">
+                                    {{ $journal->title }}
+                                </h5>
 
                                 <div class="d-flex flex-wrap mt-2 mb-3">
                                     @foreach ($areas as $area)
@@ -65,6 +65,14 @@ SIPIT | Journal
 
             @endforeach
         </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <div>
+                {{ $journals->links() }}
+            </div>
+        </div>
     </div>
+
+
 </div>
 @endsection
