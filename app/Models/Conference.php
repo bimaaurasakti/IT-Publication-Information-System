@@ -9,7 +9,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Conference extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
-    protected $fillable = ['date', 'area', 'name', 'penyelenggara', 'long_name', 'link_website', 'location'];
+    protected $fillable = [
+        'name',
+        'long_name',
+        'slug',
+        'area',
+        'organizer',
+        'link_website',
+        'location',
+        'date',
+    ];
+
+    // public function users() {
+    //     return $this->belongsToMany(User::class)->withPivot('')
+    // }
 }

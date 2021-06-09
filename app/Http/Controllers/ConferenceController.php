@@ -85,4 +85,11 @@ class ConferenceController extends Controller
     {
         //
     }
+    public function detailConferenceView(Conference $conference)
+    {
+        return view('conference.detail-conference', [
+            'conference' => $conference,
+        ]);
+    }
+
 }

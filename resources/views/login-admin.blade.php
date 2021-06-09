@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/loginAdmin.css">
-    
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}">
+
     <title>Login Admin</title>
 </head>
 <body>
@@ -24,11 +24,11 @@
             </defs>
         </svg>
 
-        <form class="text-center">
+        <form action="{{ route('admin.adminDataJournal') }}" class="text-center">
             <div class="login-input-length mb-4 mt-5">
                 <!-- <label for="exampleInputEmail1" class="form-label">Username</label> -->
                 <input type="email" class="form-control text-center form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
-                
+
             </div>
 
             <div class="login-input-length mb-4">
@@ -37,20 +37,20 @@
             </div>
 
             <div class="w-100">
-                <button type="submit" class="btn btn-primary submit w-100">Submit</button>
+                <button type="submit" class="btn btn-primary submit w-100" >Submit</button>
             </div>
         </form>
     </div>
-        
-    
+
+
 
     <!-- ini font awesome -->
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/all.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
 </body>
 </html>

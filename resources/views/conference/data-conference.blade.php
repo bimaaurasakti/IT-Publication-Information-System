@@ -7,15 +7,15 @@ SIPIT | Conferences
 
 
 @section('css')
-<link href="{{ asset('css/conference/conference.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/conference/data-conference.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
 
 @section('content')
 <div class="conference-container">
-    <div class="w-100 mb-5">
+    <div class="w-100 mb-5 d-flex justify-content-center">
         <div class="conference-page-title">
-            <p>Conference</p>
+            <h1>Conference</h1>
         </div>
     </div>
 
@@ -27,17 +27,10 @@ SIPIT | Conferences
             @endphp
             <div class="col-xxl-4 col-xl-4 mb-5">
                 <div class="d-flex justify-content-center">
-                    <div class="conference-item conference-item-border">
+                    <div class="conference-item conference-item-border" onclick="location.href='conference/detail-conference/{{ $conference->slug }}';" style="cursor: pointer;">
                         <div class="position-relative">
                             <div class="d-block">
-                                <!-- <img class="conference-item-border-top" src="{{ asset($conference->photo) }}" alt="{{ $conference->photo }}" height="300px" width="200px"> -->
-                                <!-- <div class="conference-score-container"> -->
-                                    <!-- <div class="conference-score conference--bg-{{ $conference->score }} conference-item">
-                                        <p class="m-0 text-light text-uppercase">
-                                            {{ $conference->name }}
-                                        </p>
-                                    </div> -->
-                                <!-- </div> -->
+
                             </div>
                         </div>
 
