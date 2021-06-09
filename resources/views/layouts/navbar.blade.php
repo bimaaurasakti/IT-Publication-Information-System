@@ -17,7 +17,7 @@
                     <a class="nav-link" href="/conference">CONFERENCE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
+                    <a class="nav-link" href="/about">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">HELP</a>

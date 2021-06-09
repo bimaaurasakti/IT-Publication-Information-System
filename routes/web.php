@@ -29,6 +29,10 @@ Route::get('/login-admin', function () {
     return view('login-admin');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::prefix('conference')->group(function() {
     Route::get('/', [ConferenceController::class, 'index'])->name('index');
 });
