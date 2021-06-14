@@ -2,10 +2,7 @@
 
 use App\Http\Controllers\ConferenceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\JournalController;
-use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\{HomeController, AdminController, JournalController};
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +25,6 @@ Route::prefix('journal')->name('journal.')->group(function() {
 });
 
 Route::prefix('conference')->name('conference.')->group(function() {
-    // Route::get('/', [ConferenceController::class, 'index'])->name('index');
     Route::get('/', [ConferenceController::class, 'index'])->name('index');
     Route::get('detail-conference/{conference:slug}', [ConferenceController::class, 'detailConferenceView'])->name('detailConferenceView');
 });
@@ -45,24 +41,12 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('data-conference/list', [AdminController::class, 'getConferences'])->name('adminDataConference.list');
     // Route::get('data-conference/list', [AdminController::class, 'adminDataConference'])->name('adminDataConference');
     Route::get('add-journal', [AdminController::class, 'adminAddJournal'])->name('adminAddJournal');
+    Route::post('add-journal/store', [AdminController::class, 'storeJournal'])->name('storeJournal');
     Route::get('add-conference', [AdminController::class, 'adminAddConference'])->name('adminAddConference');
     Route::get('edit-journal/{journal:slug}', [AdminController::class, 'adminEditJournal'])->name('adminEditJournal');
     Route::get('edit-conference/{conference:slug}', [AdminController::class, 'adminEditConference'])->name('adminEditConference');
 });
 
-Route::get('/login-admin', function () {
-    return view('login-admin');
-});
-
 Route::get('/about', function () {
     return view('about');
 });
-
-Route::prefix('conference')->group(function() {
-    Route::get('/', [ConferenceController::class, 'index'])->name('index');
-});
-
-// Route::prefix('conference')->name('conference.')->group(function() {
-//     Route::get('/', [JournalController::class, 'index'])->name('index');
-//     Route::get('detail-conference', [JournalController::class, 'detailConferenceView'])->name('detailConverenceView');
-// });

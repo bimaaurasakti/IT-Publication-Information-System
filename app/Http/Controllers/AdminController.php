@@ -42,6 +42,28 @@ class AdminController extends Controller
         ]);
     }
 
+    public function storeJournal()
+    {
+        // Validate the field
+        $attr = request()->validate([
+            'title' => 'required',
+            'area' => 'required',
+            'score' => 'required',
+            'institute' => 'required',
+            'link_website' => 'required',
+        ]);
+
+        // Assign title to the slug
+        $attr['slug'] = \Str::slug(request('title'));
+        
+        // Add new Journal
+        Journal::create($attr);
+
+        session()->flash('success', 'The Journal has been added');
+
+        return back();
+    }
+
     public function adminAddConference()
     {
         return view('admin.admin-form-conference', [
@@ -70,8 +92,6 @@ class AdminController extends Controller
             'action' => 'edit',
         ]);
     }
-
-
 
     // data tables view
     public function getJournals(Request $request)

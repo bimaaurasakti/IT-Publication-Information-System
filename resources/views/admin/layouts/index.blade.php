@@ -27,6 +27,8 @@
 
     @include('admin.layouts.sidebar')
 
+    @include('admin.layouts.alert-journal')
+
     @yield('content')
 
     {{-- <script src="{{ asset('/_assets/js/jquery.js') }}"></script> --}}
