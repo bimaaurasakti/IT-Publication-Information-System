@@ -41,9 +41,10 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('data-conference/list', [AdminController::class, 'getConferences'])->name('adminDataConference.list');
     // Route::get('data-conference/list', [AdminController::class, 'adminDataConference'])->name('adminDataConference');
     Route::get('add-journal', [AdminController::class, 'adminAddJournal'])->name('adminAddJournal');
-    Route::post('add-journal/store', [AdminController::class, 'storeJournal'])->name('storeJournal');
+    Route::post('add-journal/store', [AdminController::class, 'adminStoreJournal'])->name('adminStoreJournal');
     Route::get('add-conference', [AdminController::class, 'adminAddConference'])->name('adminAddConference');
     Route::get('edit-journal/{journal:slug}', [AdminController::class, 'adminEditJournal'])->name('adminEditJournal');
+    Route::patch('edit-journal/{journal:slug}/update', [AdminController::class, 'adminUpdateJournal'])->name('adminUpdateJournal');
     Route::get('edit-conference/{conference:slug}', [AdminController::class, 'adminEditConference'])->name('adminEditConference');
 });
 

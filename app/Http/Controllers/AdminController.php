@@ -36,13 +36,13 @@ class AdminController extends Controller
     // tambah data view
     public function adminAddJournal()
     {
-        return view('admin.admin-form-journal', [
+        return view('admin.admin-journal-create', [
             'journal' => new Journal(),
             'action' => 'add',
         ]);
     }
 
-    public function storeJournal()
+    public function adminStoreJournal()
     {
         // Validate the field
         $attr = request()->validate([
@@ -59,7 +59,7 @@ class AdminController extends Controller
         // Add new Journal
         Journal::create($attr);
 
-        session()->flash('success', 'The Journal has been added');
+        session()->flash('success', 'The Journal was added');
 
         return back();
     }
@@ -77,10 +77,28 @@ class AdminController extends Controller
     // edit data view
     public function adminEditJournal(Journal $journal)
     {
-        return view('admin.admin-form-journal', [
+        return view('admin.admin-journal-edit', [
             'journal' => $journal,
             'action' => 'edit',
         ]);
+    }
+
+    public function adminUpdateJournal(Journal $journal)
+    {
+        // Validate the field
+        $attr = request()->validate([
+            'title' => 'required',
+            'area' => 'required',
+            'score' => 'required',
+            'institute' => 'required',
+            'link_website' => 'required',
+        ]);
+
+        $journal->update($attr);
+
+        session()->flash('success', 'The Journal was updated');
+
+        return redirect('admin/data-journal');
     }
 
     public function adminEditConference(Conference $conference)
