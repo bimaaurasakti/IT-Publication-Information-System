@@ -4,9 +4,7 @@
     <input type="text" name="title" value="{{ old('title') ?? $journal->title }}" id="title" class="form-control" autofocus>
 </div>
 @error('title')
-    <div class="mb-2 text-danger">
-        {{ $message }}
-    </div>
+    @include('admin.partials.error-message')
 @enderror
 
 <div class="form-group">
@@ -14,9 +12,7 @@
     <input type="text" name="area" value="{{ old('area') ?? $journal->area }}" id="area" class="form-control">
 </div>
 @error('area')
-    <div class="mb-2 text-danger">
-        {{ $message }}
-    </div>
+    @include('admin.partials.error-message')
 @enderror
 
 <div class="form-group">
@@ -24,9 +20,7 @@
     <input type="text" name="score" value="{{ old('score') ?? $journal->score }}" id="score" class="form-control">
 </div>
 @error('score')
-    <div class="mb-2 text-danger">
-        {{ $message }}
-    </div>
+    @include('admin.partials.error-message')
 @enderror
 
 <div class="form-group">
@@ -34,9 +28,7 @@
     <input type="text" name="institute" value="{{ old('institute') ?? $journal->institute }}" id="institute" class="form-control">
 </div>
 @error('institute')
-    <div class="mb-2 text-danger">
-        {{ $message }}
-    </div>
+    @include('admin.partials.error-message')
 @enderror
 
 <div class="form-group">
@@ -49,9 +41,7 @@
     <input type="text" name="link_website" value="{{ old('link_website') ?? $journal->link_website }}" id="link_website" class="form-control">
 </div>
 @error('link_website')
-    <div class="mb-2 text-danger">
-        {{ $message }}
-    </div>
+    @include('admin.partials.error-message')
 @enderror
 
 <div class="form-group">

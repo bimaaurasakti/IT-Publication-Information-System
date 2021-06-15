@@ -3,7 +3,7 @@
 
 @section('title')
 
-SIPIT | Add Data Journal
+SIPIT | Add Data Conference
 
 @endsection
 
@@ -15,17 +15,17 @@ SIPIT | Add Data Journal
         <div class="container-fluid">
             <div class="box">
                 <div class="d-flex justify-content-center">
-                    <div class="col-lg-6 ">
-                        <h1>Journal</h1>
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <h1>Conference</h1>
                         <div class="d-flex justify-content-between">
-                            <h3>Add Data Journal</h3>
+                            <h4>Add Data Conference</h4>
                             <div class="pull-right">
-                                <a href="{{ route('admin.adminDataJournal') }}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-chevron-left"></i>Back</a>
+                                <a href="{{ route('admin.adminDataConference') }}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-chevron-left"></i>Back</a>
                             </div>
                         </div>
-                        <hr>
-                        <form action="/admin/add-journal/store" method="post">
-                            @include('admin.partials.form-journal-control')
+
+                        <form action="/admin/add-conference/store" method="post">
+                            @include('admin.partials.form-conference-control')
                         </form>
                     </div>
                 </div>
@@ -33,5 +33,4 @@ SIPIT | Add Data Journal
         </div>
     </div>
 </div>
-
 @endsection

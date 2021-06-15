@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Jurnal;
-use App\Models\Conference;
-use App\Models\Journal;
+use App\Models\{User, Journal, Conference};
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -66,10 +63,30 @@ class AdminController extends Controller
 
     public function adminAddConference()
     {
-        return view('admin.admin-form-conference', [
+        return view('admin.admin-conference-create', [
             'conference' => new Conference(),
             'action' => 'add',
         ]);
+    }
+
+    public function adminStoreConference()
+    {
+        $attr = request()->validate([
+            'name' => 'required',
+            'long_name' => 'required',
+            'area' => 'required',
+            'link_website' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+        ]);
+
+        $attr['slug'] = \Str::slug(request('long_name'));
+
+        Conference::create($attr);
+
+        session()->flash('success', 'The Conference was added');
+
+        return back();
     }
 
 
@@ -105,10 +122,28 @@ class AdminController extends Controller
     {
         $conference->date = date('Y-m-d', strtotime($conference->date));
 
-        return view('admin.admin-form-conference', [
+        return view('admin.admin-conference-edit', [
             'conference' => $conference,
             'action' => 'edit',
         ]);
+    }
+
+    public function adminUpdateConference(Conference $conference)
+    {
+        $attr = request()->validate([
+            'name' => 'required',
+            'long_name' => 'required',
+            'area' => 'required',
+            'link_website' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+        ]);
+
+        $conference->update($attr);
+
+        session()->flash('success', 'The Conference was updated');
+
+        return redirect('admin/data-conference');
     }
 
     // data tables view
