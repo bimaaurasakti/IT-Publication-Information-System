@@ -66,13 +66,22 @@
 
 <div class="form-group">
     <label for="photo"><h5>File JPG, PNG, JPEG</h5></label>
-    <input type="file" name="photo" id="photo" class="form-control">
+    <br>
+    <input type="file" name="photo" id="photo" class="block">
 </div>
 
-<div class="form-group pull-right">
-    <input type="submit" name="add" value="{{ $action == 'add' ? 'Add' : 'Edit' }}" class="btn btn-success">
-</div>
 
-<div class="form-group pull-right">
-    <input type="delete" name="add" value="Delete" class="btn btn-success">
+<div class="d-flex mt-4">
+    {{-- <div class="form-group pull-right mr-2">
+        <input type="submit" name="add" value="{{ $action == 'add' ? 'Add' : 'Edit' }}" class="btn btn-success">
+    </div> --}}
+    <button type="submit" style="height : 36px;" name="add" class="btn btn-success mr-2">{{ $action == 'add' ? 'Add' : 'Edit' }}</button>
+    
+    @if ($action == 'edit')    
+    <form action="/admin/data-journal{{ $journal->slug }}}/delete" method="post">
+        @csrf
+        @method('delete')
+        <button class="btn btn-danger" name="delete" type="submit">Delete</button>
+    </form>
+    @endif
 </div>

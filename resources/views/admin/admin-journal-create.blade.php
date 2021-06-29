@@ -24,7 +24,7 @@ SIPIT | Add Data Journal
                             </div>
                         </div>
                         <hr>
-                        <form action="/admin/add-journal/store" method="post">
+                        <form action="{{ route('admin.adminStoreJournal') }}" method="post" enctype="multipart/form-data" novalidate>
                             @include('admin.partials.form-journal-control')
                         </form>
                     </div>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User, Journal, Conference};
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use App\Models\{User, Journal, Conference};
 
 class AdminController extends Controller
 {
@@ -20,17 +21,17 @@ class AdminController extends Controller
             'journals' => Journal::get(),
         ]);
     }
-
+    
     public function adminDataConference()
     {
         return view('admin.admin-data-conference', [
             'conferences' => Conference::get(),
         ]);
     }
+    
+    
 
-
-
-    // tambah data view
+    // CRUD Journal
     public function adminAddJournal()
     {
         return view('admin.admin-journal-create', [
@@ -38,7 +39,7 @@ class AdminController extends Controller
             'action' => 'add',
         ]);
     }
-
+    
     public function adminStoreJournal()
     {
         // Validate the field
@@ -49,49 +50,18 @@ class AdminController extends Controller
             'institute' => 'required',
             'link_website' => 'required',
         ]);
-
+        
         // Assign title to the slug
-        $attr['slug'] = \Str::slug(request('title'));
+        $attr['slug'] = Str::slug(request('title'));
         
         // Add new Journal
         Journal::create($attr);
-
+        
         session()->flash('success', 'The Journal was added');
-
+        
         return back();
     }
-
-    public function adminAddConference()
-    {
-        return view('admin.admin-conference-create', [
-            'conference' => new Conference(),
-            'action' => 'add',
-        ]);
-    }
-
-    public function adminStoreConference()
-    {
-        $attr = request()->validate([
-            'name' => 'required',
-            'long_name' => 'required',
-            'area' => 'required',
-            'link_website' => 'required',
-            'location' => 'required',
-            'date' => 'required',
-        ]);
-
-        $attr['slug'] = \Str::slug(request('long_name'));
-
-        Conference::create($attr);
-
-        session()->flash('success', 'The Conference was added');
-
-        return back();
-    }
-
-
-
-    // edit data view
+    
     public function adminEditJournal(Journal $journal)
     {
         return view('admin.admin-journal-edit', [
@@ -110,24 +80,64 @@ class AdminController extends Controller
             'institute' => 'required',
             'link_website' => 'required',
         ]);
-
+        
         $journal->update($attr);
-
+        
         session()->flash('success', 'The Journal was updated');
+        
+        return redirect('admin/data-journal');
+    }
+    
+    public function adminDeleteJournal(Journal $journal) 
+    {
+        $journal->delete();
+
+        session()->flash("success", "The Journal was deleted");
 
         return redirect('admin/data-journal');
     }
-
+    
+    
+    
+    // CRUD Conference
+    public function adminAddConference()
+    {
+        return view('admin.admin-conference-create', [
+            'conference' => new Conference(),
+            'action' => 'add',
+        ]);
+    }
+    
+    public function adminStoreConference()
+    {
+        $attr = request()->validate([
+            'name' => 'required',
+            'long_name' => 'required',
+            'area' => 'required',
+            'link_website' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+        ]);
+        
+        $attr['slug'] = Str::slug(request('long_name'));
+        
+        Conference::create($attr);
+        
+        session()->flash('success', 'The Conference was added');
+        
+        return back();
+    }
+    
     public function adminEditConference(Conference $conference)
     {
         $conference->date = date('Y-m-d', strtotime($conference->date));
-
+        
         return view('admin.admin-conference-edit', [
             'conference' => $conference,
             'action' => 'edit',
         ]);
     }
-
+    
     public function adminUpdateConference(Conference $conference)
     {
         $attr = request()->validate([
@@ -138,13 +148,24 @@ class AdminController extends Controller
             'location' => 'required',
             'date' => 'required',
         ]);
-
+        
         $conference->update($attr);
-
+        
         session()->flash('success', 'The Conference was updated');
+        
+        return redirect('admin/data-conference');
+    }
+    
+    public function adminDeleteConference(Conference $conference)
+    {
+        $conference->delete();
+
+        session()->flash("success", "The Conference was deleted");
 
         return redirect('admin/data-conference');
     }
+
+
 
     // data tables view
     public function getJournals(Request $request)

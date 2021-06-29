@@ -52,6 +52,17 @@
     @include('admin.partials.error-message')
 @enderror
 
-<div class="form-group pull-right">
-    <input type="submit" name="add" value="{{ $action == 'add' ? 'Add' : 'Edit' }}" class="btn btn-success">
+<div class="d-flex mt-4">
+    {{-- <div class="form-group pull-right mr-2">
+        <input type="submit" name="add" value="{{ $action == 'add' ? 'Add' : 'Edit' }}" class="btn btn-success">
+    </div> --}}
+    <button style="height : 36px;" name="add" type="submit" class="btn btn-success mr-2">{{ $action == 'add' ? 'Add' : 'Edit' }}</button>
+
+    @if ($action == 'edit')
+    <form action="/admin/data-conference{{ $conference->slug }}}/delete" method="post">
+        @csrf
+        @method('delete')
+        <button style="height : 36px;" name="delete" class="btn btn-danger" type="submit">Delete</button>
+    </form>
+    @endif
 </div>

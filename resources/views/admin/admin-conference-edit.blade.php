@@ -25,7 +25,7 @@ SIPIT | Edit Data Conference
                         </div>
                         <h4>{{ $conference->name }}</h4>
                         <hr>
-                        <form action="/admin/edit-conference/{{ $conference->slug }}/update" method="post" novalidate>
+                        <form action="/admin/data-conference/{{ $conference->slug }}/update" method="post" enctype="multipart/form-data" novalidate>
                             @method('patch')
                             @include('admin.partials.form-conference-control')
                         </form>
