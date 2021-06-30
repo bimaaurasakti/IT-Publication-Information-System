@@ -14,6 +14,7 @@ class Journal extends Model
         'slug',
         'area',
         'score',
+        'impact',
         'institute',
         'publisher',
         'link_website',

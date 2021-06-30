@@ -1,4 +1,3 @@
-
 /* login */
 body {
     height: 100vh;
@@ -16,4 +15,14 @@ body {
 
 .submit {
     border-radius: 10px;
+}
+
+.login-admin-back-button {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+}
+
+.login-admin-back-button i {
+    color: #3f3f3f;
 }

@@ -22,4 +22,15 @@ class ConferenceController extends Controller
         ]);
     }
 
+    public function searchConference(Request $request)
+    {
+        return view('conference.data-conference', [
+            'conferences' => Conference::where('name', 'LIKE', '%'.$request->search.'%')
+                                        ->orWhere('long_name', 'LIKE', '%'.$request->search.'%')
+                                        ->orWhere('area', 'LIKE', '%'.$request->search.'%')
+                                        ->paginate(16),
+            'search' => $request->search,
+        ]);
+    }
+
 }

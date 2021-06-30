@@ -10,10 +10,18 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <title>Login Admin</title>
 </head>
 <body>
-    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+    <div class="d-flex px-5 py-4">
+        <a href="{{ route('index') }}" class="d-flex justify-content-center align-items-center login-admin-back-button rounded-circle">
+            <i class="bi bi-arrow-left-short h3 m-0"></i>
+        </a>
+    </div>
+
+    <div class="d-flex flex-column align-items-center justify-content-center h-75">
         <svg width="200" height="219" viewBox="0 0 200 219" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="200" height="219" fill="url(#pattern0)"/>
             <defs>
@@ -24,16 +32,31 @@
             </defs>
         </svg>
 
-        <form action="{{ route('admin.adminDataJournal') }}" class="text-center">
+        <form method="POST" action="{{ route('login') }}" class="text-center">
+            @csrf
+
             <div class="login-input-length mb-4 mt-5">
                 <!-- <label for="exampleInputEmail1" class="form-label">Username</label> -->
-                <input type="email" class="form-control text-center form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                {{-- <input type="email" class="form-control text-center form" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"> --}}
+                <input id="email" type="email" class="form-control text-center form @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
 
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="login-input-length mb-4">
                 <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                <input type="password" class="form-control text-center form" id="exampleInputPassword1" placeholder="Password">
+                {{-- <input type="password" class="form-control text-center form" id="exampleInputPassword1" placeholder="Password"> --}}
+                <input id="password" type="password" class="form-control text-center form @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="w-100">
@@ -41,8 +64,6 @@
             </div>
         </form>
     </div>
-
-
 
     <!-- ini font awesome -->
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">

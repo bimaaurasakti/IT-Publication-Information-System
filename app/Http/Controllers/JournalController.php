@@ -23,4 +23,14 @@ class JournalController extends Controller
         ]);
     }
 
+    public function searchJournal(Request $request)
+    {
+        return view('journal.data-journal', [
+            'journals' => Journal::where('title', 'LIKE', '%'.$request->search.'%')
+                                ->orWhere('area', 'LIKE', '%'.$request->search.'%')
+                                ->paginate(16),
+            'search' => $request->search,
+        ]);
+    }
+
 }

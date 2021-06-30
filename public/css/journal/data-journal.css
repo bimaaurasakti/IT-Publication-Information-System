@@ -13,6 +13,11 @@
     color: #0E3854;
 }
 
+.journal-card {
+    min-width: 230px;
+    max-width: 300px;
+}
+
 .journal-item {
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
     width: 200px;
@@ -32,7 +37,7 @@
 }
 
 .journal-title {
-    text-align: center;
+    font-size: 17px;
 }
 
 .journal-score-container {

@@ -20,12 +20,12 @@ SIPIT | Journal
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             @foreach ($journals as $journal)
             @php
                 $areas = explode(", ", $journal->area);
             @endphp
-            <div class="col-xxl-3 col-xl-4 mb-5">
+            <div class="journal-card mb-5">
                 <div class="d-flex justify-content-center">
                     <div class="journal-item journal-item-border" onclick="location.href='journal/detail-journal/{{ $journal->slug }}';" style="cursor: pointer;">
                         <div class="position-relative">
@@ -43,7 +43,7 @@ SIPIT | Journal
 
                         <div class="d-block">
                             <div class="px-3 py-3">
-                                <h5 class="jounal-title m-0">
+                                <h5 class="journal-title m-0">
                                     {{ $journal->title }}
                                 </h5>
 

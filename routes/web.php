@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\ConferenceController;
 
@@ -23,20 +25,27 @@ Route::get('home', [HomeController::class, 'index'])->name('index');
 
 Route::prefix('journal')->name('journal.')->group(function() {
     Route::get('/', [JournalController::class, 'index'])->name('index');
+    Route::get('search', [JournalController::class, 'searchJournal'])->name('searchJournal');
     Route::get('detail-journal/{journal:slug}', [JournalController::class, 'detailJournalView'])->name('detailJournalView');
 });
 
 Route::prefix('conference')->name('conference.')->group(function() {
     // Route::get('/', [ConferenceController::class, 'index'])->name('index');
     Route::get('/', [ConferenceController::class, 'index'])->name('index');
+    Route::get('search', [ConferenceController::class, 'searchConference'])->name('searchConference');
     Route::get('detail-conference/{conference:slug}', [ConferenceController::class, 'detailConferenceView'])->name('detailConferenceView');
 });
 
-Route::get('/login-admin', function () {
-    return view('login-admin');
-})->name('loginAdmin');
+// Route::get('/login-admin', [LoginController::class, 'index'])->name('loginAdmin');
 
-Route::prefix('admin')->name('admin.')->group(function() {
+// Route::prefix('conference')->name('conference.')->group(function() {
+//     Route::get('/', [JournalController::class, 'index'])->name('index');
+//     Route::get('detail-conference', [JournalController::class, 'detailConferenceView'])->name('detailConverenceView');
+// });
+
+Auth::routes();
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     // Route::get('/', [JournalController::class, 'index'])->name('index');
     Route::get('data-journal', [AdminController::class, 'adminDataJournal'])->name('adminDataJournal');
     Route::get('data-conference', [AdminController::class, 'adminDataConference'])->name('adminDataConference');
@@ -48,8 +57,3 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('edit-journal/{journal:slug}', [AdminController::class, 'adminEditJournal'])->name('adminEditJournal');
     Route::get('edit-conference/{conference:slug}', [AdminController::class, 'adminEditConference'])->name('adminEditConference');
 });
-
-// Route::prefix('conference')->name('conference.')->group(function() {
-//     Route::get('/', [JournalController::class, 'index'])->name('index');
-//     Route::get('detail-conference', [JournalController::class, 'detailConferenceView'])->name('detailConverenceView');
-// });
