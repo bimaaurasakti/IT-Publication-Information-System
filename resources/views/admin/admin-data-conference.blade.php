@@ -17,9 +17,9 @@ SIPIT | Admin Data Conference
 <div id="page-content-wrapper">
     <div class="container-fluid">
         <div class="box">
-            <h1>Conferenece</h1>
+            <h1>Conference</h1>
             <h4 class="d-flex align-items-center justify-content-between">
-                <small>Data Conferenece</small>
+                <small>Data Conference</small>
                 <div class="d-flex justify-content-end">
                     <a href="" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-refresh"></i> </a>
                     <a href="{{ route('admin.adminAddConference') }}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i>Tambah Conference</a>
