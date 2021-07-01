@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\JournalController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\GoutteCrawlerJournal;
+use App\Http\Controllers\GoutteCrawlerConference;
 
 
 /*
@@ -66,6 +68,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::get('data-conference/{conference:slug}/edit', [AdminController::class, 'adminEditConference'])->name('adminEditConference');
     Route::patch('data-conference/{conference:slug}/update', [AdminController::class, 'adminUpdateConference'])->name('adminUpdateConference');
     Route::delete('data-conference/{conference:slug}/delete', [AdminController::class, 'adminDeleteConference'])->name('adminDeleteConference');
+
+    // Crawl Data
+    Route::get('/crawl-journal', [GoutteCrawlerJournal::class, 'loopTableIndex'])->name('crawlJournal');
+    Route::get('/crawl-conference', [GoutteCrawlerConference::class, 'passLoginEdas'])->name('crawlConference');
 
 });
 

@@ -14,13 +14,17 @@ class CreateManageConferencesTable extends Migration
     public function up()
     {
         Schema::create('manage_conferences', function (Blueprint $table) {
-            $table->foreignId('journal_id')->constrained('journals', 'id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users', 'id')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('conference_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamp('last_updated');
             $table->string('log');
             $table->timestamps();
-            $table->primary(['journal_id', 'user_id']);
+            $table->unique(['conference_id', 'user_id']);
 
+            // $table->foreignId('conference_id')->constrained('conferences', 'id')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained('users', 'id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('conference_id')->references('id')->on('conferences')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

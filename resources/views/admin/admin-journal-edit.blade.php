@@ -27,7 +27,7 @@ SIPIT | Edit Data Journal
                         <hr>
                         <form action="/admin/data-journal/{{ $journal->slug }}/update" method="post" enctype="multipart/form-data" novalidate>
                             @method('patch')
-                            @include('admin.partials.form-journal-control')
+                            @include('admin.partials.form-journal-control', ['action' => 'edit'])
                         </form>
                     </div>
                 </div>

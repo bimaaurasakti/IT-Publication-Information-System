@@ -76,12 +76,12 @@
         <input type="submit" name="add" value="{{ $action == 'add' ? 'Add' : 'Edit' }}" class="btn btn-success">
     </div> --}}
     <button type="submit" style="height : 36px;" name="add" class="btn btn-success mr-2">{{ $action == 'add' ? 'Add' : 'Edit' }}</button>
-    
-    @if ($action == 'edit')    
+{{-- 
+    @if ($action == 'edit')
     <form action="/admin/data-journal{{ $journal->slug }}}/delete" method="post">
-        @csrf
         @method('delete')
+        @csrf
         <button class="btn btn-danger" name="delete" type="submit">Delete</button>
     </form>
-    @endif
+    @endif --}}
 </div>

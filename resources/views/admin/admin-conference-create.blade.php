@@ -25,7 +25,7 @@ SIPIT | Add Data Conference
                         </div>
 
                         <form action="{{ route('admin.adminStoreConference') }}" method="post" enctype="multipart/form-data" novalidate>
-                            @include('admin.partials.form-conference-control')
+                            @include('admin.partials.form-conference-control', ['action' => 'add'])
                         </form>
                     </div>
                 </div>

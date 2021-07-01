@@ -10,7 +10,7 @@ class ConferenceController extends Controller
 {
     public function index()
     {
-        $conferences = Conference::all();
+        $conferences = Conference::paginate(16);
 
         return view('conference.data-conference' ,compact('conferences'));
     }

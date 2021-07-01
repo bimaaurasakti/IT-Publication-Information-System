@@ -19,7 +19,7 @@ class CreateJournalsTable extends Migration
             $table->string('slug');
             $table->string('area');
             $table->char('score', 2);
-            $table->double('impact');
+            $table->double('impact')->nullable();
             $table->string('institute');
             $table->string('publisher')->nullable();
             $table->string('link_website');

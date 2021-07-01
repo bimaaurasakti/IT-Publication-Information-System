@@ -58,11 +58,11 @@
     </div> --}}
     <button style="height : 36px;" name="add" type="submit" class="btn btn-success mr-2">{{ $action == 'add' ? 'Add' : 'Edit' }}</button>
 
-    @if ($action == 'edit')
+    {{-- @if ($action == 'edit')
     <form action="/admin/data-conference{{ $conference->slug }}}/delete" method="post">
-        @csrf
         @method('delete')
+        @csrf
         <button style="height : 36px;" name="delete" class="btn btn-danger" type="submit">Delete</button>
     </form>
-    @endif
+    @endif --}}
 </div>

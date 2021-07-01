@@ -62,6 +62,12 @@ SIPIT | Conferences
 
             @endforeach
         </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <div>
+                {{ $conferences->links() }}
+            </div>
+        </div>
     </div>
 </div>
 @endsection
