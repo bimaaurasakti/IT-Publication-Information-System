@@ -40,10 +40,11 @@ class AdminController extends Controller
         ]);
     }
     
-    public function adminStoreJournal()
+    public function adminStoreJournal(Request $request)
     {
+        dd($request);
         // Validate the field
-        $attr = request()->validate([
+        $attr = $request->validate([
             'title' => 'required',
             'area' => 'required',
             'score' => 'required',
@@ -51,6 +52,8 @@ class AdminController extends Controller
             'link_website' => 'required',
         ]);
         
+        $name = request()->file('name');
+
         // Assign title to the slug
         $attr['slug'] = Str::slug(request('title'));
         
