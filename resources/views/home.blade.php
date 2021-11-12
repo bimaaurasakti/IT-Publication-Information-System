@@ -58,7 +58,10 @@ SIPIT | Home
                         <img src="{{ asset($journal->photo) }}" class="figure-img img-fluid" >
                         <div class="d-flex justify-content-center">
                             <figcaption class="figure-width figure-caption text-center m-0">
-                                {{ $journal->title }}
+                                <a class="journal-latest-update"
+                                href="{{ route('journal.detailJournalView', ['journal' => $journal]) }}">
+                                    {{ $journal->title }}
+                                </a>
                             </figcaption>
                         </div>
                     </figure>

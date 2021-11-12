@@ -157,6 +157,10 @@ body {
     margin-bottom: 100px;
 }
 
+.title-similar-journal {
+    text-decoration: none;
+    color: #171717;
+}
 
 .checkout-detail {
     background-color: #F6F7FB;

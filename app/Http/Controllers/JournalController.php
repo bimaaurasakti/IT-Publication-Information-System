@@ -18,18 +18,22 @@ class JournalController extends Controller
 
     public function detailJournalView(Journal $journal)
     {
+        $area       = explode(', ', $journal->area)[0];
+        $similars   = Journal::Where('area', 'LIKE', '%'.$area.'%')->limit(3)->get();
+
         return view('journal.detail-journal', [
-            'journal' => $journal,
+            'journal'   => $journal,
+            'similars'  => $similars,
         ]);
     }
 
     public function searchJournal(Request $request)
     {
         return view('journal.data-journal', [
-            'journals' => Journal::where('title', 'LIKE', '%'.$request->search.'%')
+            'journals'  => Journal::where('title', 'LIKE', '%'.$request->search.'%')
                                 ->orWhere('area', 'LIKE', '%'.$request->search.'%')
                                 ->paginate(16),
-            'search' => $request->search,
+            'search'    => $request->search,
         ]);
     }
 

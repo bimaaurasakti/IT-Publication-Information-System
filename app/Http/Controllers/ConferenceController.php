@@ -17,8 +17,13 @@ class ConferenceController extends Controller
 
     public function detailConferenceView(Conference $conference)
     {
+        // dd($conference);
+        $area       = explode(', ', $conference->area)[0];
+        $similars   = Conference::Where('area', 'LIKE', '%'.$area.'%')->limit(3)->get();
+
         return view('conference.detail-conference', [
-            'conference' => $conference,
+            'conference'    => $conference,
+            'similars'      => $similars,
         ]);
     }
 

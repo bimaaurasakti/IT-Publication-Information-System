@@ -17,6 +17,11 @@
     font-weight: 300 !important;
 }
 
+.journal-latest-update {
+    color: #212529;
+    text-decoration: none;
+}
+
 /* Carousel */
 .carousel {
     height: 450px;
@@ -55,3 +60,4 @@ footer svg {
     height: 30px;
     width: 30px;
 }
+

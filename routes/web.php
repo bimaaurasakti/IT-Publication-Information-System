@@ -77,4 +77,4 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
 
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');

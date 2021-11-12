@@ -114,47 +114,21 @@ SIPIT | Conference
         </div>
 
         <div class="row">
-            <div class="col-sm-4">
-                <div>
-                    <img src="/img/conference1.webp" class="figure-img img-fluid" width="375px" style="max-height: 220px;">
-                    <figcaption class="figure-caption">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Conference ABCD</h4>
-                                <p>Speaker</p>
+            @foreach ($similars as $similar)
+                <div class="col-sm-4">
+                    <div class="similar-conference-box p-3 rounded"
+                    onclick="window.location.href = '{{ route('conference.detailConferenceView', ['conference' => $similar]) }}'">
+                        <figcaption class="figure-caption">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>{{ $similar->long_name }}</h4>
+                                    <p>{{ $similar->date }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </figcaption>
+                        </figcaption>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div>
-                    <img src="/img/conference2.jpeg" class="figure-img img-fluid" width="375px" style="max-height: 220px;">
-                    <figcaption class="figure-caption">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Conference ABCD</h4>
-                                <p>Speaker</p>
-                            </div>
-                        </div>
-                    </figcaption>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div>
-                    <img src="/img/conference3.png" class="figure-img img-fluid" width="375px" style="max-height: 220px;">
-                    <figcaption class="figure-caption">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Conference ABCD</h4>
-                                <p>Speaker</p>
-                            </div>
-                        </div>
-                    </figcaption>
-                </div=>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

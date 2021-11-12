@@ -26,12 +26,13 @@
                 </a>
             </div>
         </div>
-
         <br>
 
         <div class="row mt-3 justify-content-between">
             <div class="col">
-                <p class="text-white">All Rights Reserved by SIPIT TEAM Copyright 2021</p>
+                <div class="d-flex align-items-end h-100">
+                    <p class="text-white mb-0">All Rights Reserved by SIPIT TEAM Copyright 2021</p>
+                </div>
             </div>
 
             <div class="col-5">

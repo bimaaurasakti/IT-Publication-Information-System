@@ -18,11 +18,11 @@
                         <a class="nav-link" href="{{ route('conference.index') }}">CONFERENCE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT</a>
+                        <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#">HELP</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login')}}">ADMIN</a>
                     </li>
