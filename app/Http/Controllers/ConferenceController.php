@@ -29,13 +29,21 @@ class ConferenceController extends Controller
 
     public function searchConference(Request $request)
     {
-        return view('conference.data-conference', [
-            'conferences' => Conference::where('name', 'LIKE', '%'.$request->search.'%')
-                                        ->orWhere('long_name', 'LIKE', '%'.$request->search.'%')
-                                        ->orWhere('area', 'LIKE', '%'.$request->search.'%')
-                                        ->paginate(16),
-            'search' => $request->search,
-        ]);
+        if(isset($_GET['query'])){
+            $search_data = $_GET['query'];
+            $conferences = Conference::Where('name', 'LIKE', '%'.$search_data.'%')
+                                        ->orWhere('long_name', 'LIKE', '%'.$search_data.'%')
+                                        ->orWhere('area', 'LIKE', '%'.$search_data.'%')
+                                        ->paginate(16);
+            $conferences->appends($request->all());
+            return view('conference.data-conference', [
+                'conferences' => $conferences
+            ]);
+        } else {
+            return view('conference.data-conference', [
+                'conferences' => Conference::paginate(16)
+            ]);
+        }
     }
 
 }

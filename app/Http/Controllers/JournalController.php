@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Journal;
-use App\Models\Jurnal;
 use Illuminate\Http\Request;
 
 class JournalController extends Controller
@@ -29,12 +28,20 @@ class JournalController extends Controller
 
     public function searchJournal(Request $request)
     {
-        return view('journal.data-journal', [
-            'journals'  => Journal::where('title', 'LIKE', '%'.$request->search.'%')
-                                ->orWhere('area', 'LIKE', '%'.$request->search.'%')
-                                ->paginate(16),
-            'search'    => $request->search,
-        ]);
+        if(isset($_GET['query'])){
+            $search_data = $_GET['query'];
+            $journals  = Journal::where('title', 'LIKE', '%'.$search_data.'%')
+                                    ->orWhere('area', 'LIKE', '%'.$search_data.'%')
+                                    ->paginate(16);
+            $journals->appends($request->all());
+            return view('journal.data-journal', [
+                'journals' => $journals
+            ]);
+        } else {
+            return view('journal.data-journal', [
+                'journals' => Journal::paginate(16),
+            ]);
+        }
     }
 
 }

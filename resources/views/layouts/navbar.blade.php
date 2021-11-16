@@ -30,7 +30,7 @@
 
                 @if (head(explode('/', request()->path())) !== 'home')
                     <form class="d-flex" action="{{ head(explode('/', request()->path())) === 'journal' ? route('journal.searchJournal') : route('conference.searchConference') }}">
-                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 @endif
