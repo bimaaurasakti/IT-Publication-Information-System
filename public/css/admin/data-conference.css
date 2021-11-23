@@ -1,0 +1,22 @@
+#DataTables_Table_0_wrapper {
+    overflow: hidden;
+}
+
+.admin-data-journal-Action {
+    width: 10px;
+}
+
+.data-journal-action-button {
+    background-color: white;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.data-journal-action-button:hover {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+.data-journal-action-button i {
+    color: #0E3854;
+}
+

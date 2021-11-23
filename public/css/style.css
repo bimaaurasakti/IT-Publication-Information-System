@@ -12,8 +12,14 @@
     margin-left: 300px;
     margin-top: 50px;
 }
+
 .col {
     font-weight: 300 !important;
+}
+
+.journal-latest-update {
+    color: #212529;
+    text-decoration: none;
 }
 
 /* Carousel */
@@ -22,6 +28,36 @@
     background-color: #0E3854;
     color: white;
 }
+
+.carousel-image {
+    width: 240px;
+    height: 340px;
+    align-content: center;
+}
+
 .h3 {
     font-weight: 300 !important;
 }
+
+.content-page-title {
+    padding: 5px 20px;
+    border-bottom: solid 2px #0E3854;
+    text-align: center;
+    width: auto;
+}
+
+.figure-width {
+    width: 180px;
+}
+
+/* Footer */
+footer {
+    background-color: #0E3854;
+}
+
+footer svg {
+    fill: white;
+    height: 30px;
+    width: 30px;
+}
+
