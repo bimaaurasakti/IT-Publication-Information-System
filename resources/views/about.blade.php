@@ -89,25 +89,41 @@
             <div class="d-flex justify-content-center mb-3">
                 <h1>Feedback</h1>
             </div>
-                <form action="" method="post" enctype="multipart/form-data" novalidate>
+                <form action="{{ route('about.sendFeedback') }}" method="post" enctype="multipart/form-data" novalidate>
+                    @csrf
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Your Name">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="Your Name">
                     </div>
+                    @error('name')
+                        @include('admin.partials.error-message')
+                    @enderror
                     <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Your Email</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Your Email">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="text" name="email" value="{{ old('email') }}" class="form-control" id="email" placeholder="Your Email">
                     </div>
+                    @error('email')
+                        @include('admin.partials.error-message')
+                    @enderror
                     <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Subject">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" name="subject" value="{{ old('subject') }}" class="form-control" id="subject" placeholder="Subject">
                     </div>
+                    @error('subject')
+                        @include('admin.partials.error-message')
+                    @enderror
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Message</textarea>
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" value="{{ old('message') }}" name="message" id="message" rows="3" placeholder="Message"></textarea>
                     </div>
-                    <button style="height : 36px;" name="add" type="submit" class="btn btn-success mr-2">Send</button>
+                    @error('message')
+                        @include('admin.partials.error-message')
+                    @enderror
+                    <div class="d-flex mt-4">
+                        <button style="height : 36px;" name="add" type="submit" class="btn btn-success mr-2">Send</button>
+                    </div>
                 </form>
+                @include('admin.layouts.alert-journal')
             </div>      
         </div>
     </div>
