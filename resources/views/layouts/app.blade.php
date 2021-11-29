@@ -25,7 +25,7 @@
 
     @include('layouts.footer')
 
-    <!-- ini font awesome -->
+    <!-- ini font awesome oy -->
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
