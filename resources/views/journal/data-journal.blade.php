@@ -27,7 +27,7 @@ SIPIT | Journal
             @endphp
             <div class="journal-card mb-5">
                 <div class="d-flex justify-content-center">
-                    <div class="journal-item journal-item-border" onclick="location.href='journal/detail-journal/{{ $journal->slug }}';" style="cursor: pointer;">
+                    <div class="journal-item journal-item-border" onclick="location.href='{{ route('journal.detailJournalView', ['journal' => $journal]) }}';" style="cursor: pointer;">
                         <div class="position-relative">
                             <div class="d-block">
                                 <img class="journal-item-border-top" src="{{ asset($journal->photo) }}" alt="{{ $journal->photo }}" height="300px" width="200px">

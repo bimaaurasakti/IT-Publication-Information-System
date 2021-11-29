@@ -27,7 +27,7 @@ SIPIT | Conferences
             @endphp
             <div class="col-xxl-4 col-xl-4 mb-5">
                 <div class="d-flex justify-content-center">
-                    <div class="conference-item conference-item-border" onclick="location.href='conference/detail-conference/{{ $conference->slug }}';" style="cursor: pointer;">
+                    <div class="conference-item conference-item-border" onclick="location.href='{{ route('conference.detailConferenceView', ['conference' => $conference]) }}';" style="cursor: pointer;">
                         <div class="position-relative">
                             <div class="d-block">
 
