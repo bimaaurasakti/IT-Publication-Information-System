@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <title>Login Admin</title>
+    <title>SIPIT | Login Admin</title>
 </head>
 <body>
     <div class="d-flex px-5 py-4">

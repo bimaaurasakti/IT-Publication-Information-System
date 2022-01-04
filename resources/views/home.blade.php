@@ -19,7 +19,7 @@ SIPIT | Home
                             <p>Produksi yang tinggi merupakan tujuan dari budidaya udang secara intensif untuk
                             memenuhi kebutuhan pasar akan udang. Pada penelitian ini membahas rancang bangun
                             sebuah sistem untuk pemantauan kualitas air yang dapat memberikan informasi tentang ...</p>
-                            <a href="" class="btn btn-warning">view</a>
+                            <a href="{{ route('journal.detailJournalView', ['journal' => $journal]) }}" class="btn btn-warning">view</a>
                         </div>
                         <div class="col">
                             <img class="carousel-image" src="{{ asset($journal->photo) }}">
