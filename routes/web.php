@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\Auth\LoginController;
@@ -75,6 +76,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
 
 });
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::prefix('about')->name('about.')->group(function() {
+    Route::get('/', [AboutController::class, 'index'])->name('index');
+    Route::post('feedback', [AboutController::class, 'sendFeedback'])->name('sendFeedback');
+});
