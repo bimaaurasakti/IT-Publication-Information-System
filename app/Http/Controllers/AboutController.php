@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SendFeedbackRequest;
 use Illuminate\Http\Request;
 use App\Models\Feedback;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AboutController extends Controller
 {
@@ -20,7 +21,9 @@ class AboutController extends Controller
 
         Feedback::create($attr);
 
-        session()->flash('success', 'Feedback was sended');
+        // session()->flash('success', 'Feedback was sended');
+
+        Alert::success('Congrats', 'Feedback was sended');
 
         return back();
     }
