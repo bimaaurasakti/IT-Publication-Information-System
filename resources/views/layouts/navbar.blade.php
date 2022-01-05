@@ -18,7 +18,7 @@
                         <a class="nav-link" href="{{ route('conference.index') }}">CONFERENCE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">ABOUT</a>
+                        <a class="nav-link" href="{{ route('about.index') }}">ABOUT</a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">HELP</a>
